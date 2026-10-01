@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const interviewSchema = new mongoose.Schema({
+  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, index: true },
   applicationId: { type: mongoose.Schema.Types.ObjectId, ref: 'Application', required: true, index: true },
   scheduledAt: { type: Date, required: true },
   type: { type: String, required: true, enum: ['phone', 'video', 'onsite', 'other'] },
